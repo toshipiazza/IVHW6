@@ -24,8 +24,9 @@ if __name__ == '__main__':
     if (len(sys.argv) == 2):
         commitsfile = sys.argv[1]
         #open commits to read
-        with open('djangodata.csv', 'w') as csvfile:
+        with open('railsdata.csv', 'w') as csvfile:
             spamwriter = csv.writer(csvfile)
+            spamwriter.writerow(["key","value","date"])
             with open(commitsfile) as f:
                 #for each month aka a line in commits file
                 for month in f:
@@ -80,9 +81,8 @@ if __name__ == '__main__':
                                 filename = temp[6]
                                 continue
                             continue
-
                     for key in extensions:
                         #put in csv here
-                        formatted_number = str("{0:.3f}".format(extensions[key]/django_max))
+                        formatted_number = str("{0:.3f}".format(extensions[key]/rails_max))
                         spamwriter.writerow([key,formatted_number,date])
         print("max number is " + str(number_max))
