@@ -1,44 +1,5 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-
-body {
-  font: 10px sans-serif;
-}
-
-.chart { 
-  background: #fff;
-}
-
-p {
-  font: 12px helvetica;
-}
-
-
-.axis path, .axis line {
-  fill: none;
-  stroke: #000;
-  stroke-width: 2px;
-  shape-rendering: crispEdges;
-}
-
-button {
-  position: absolute;
-  right: 50px;
-  top: 10px;
-}
-
-</style>
-<body>
-<script src="http://d3js.org/d3.v2.js"></script>
-
-
-<div class="chart">
-</div>
-
-<script>
-
-chart("django.csv", "orange");
+// streamgraph
+chart("data-streamgraph.csv", "orange");
 
 var datearray = [];
 var colorrange = [];
@@ -172,9 +133,9 @@ var graph = d3.csv(csvpath, function(data) {
       d3.select(this)
       .classed("hover", true)
       .attr("stroke", strokecolor)
-      .attr("stroke-width", "0.5px"), 
+      .attr("stroke-width", "0.5px"),
       tooltip.html( "<p>" + d.key + "<br>" + pro + "</p>" ).style("visibility", "visible");
-      
+
     })
     .on("mouseout", function(d, i) {
      svg.selectAll(".layer")
@@ -185,7 +146,7 @@ var graph = d3.csv(csvpath, function(data) {
       .classed("hover", false)
       .attr("stroke-width", "0px"), tooltip.html( "<p>" + d.key + "<br>" + pro + "</p>" ).style("visibility", "hidden");
   })
-    
+
   var vertical = d3.select(".chart")
         .append("div")
         .attr("class", "remove")
@@ -199,14 +160,13 @@ var graph = d3.csv(csvpath, function(data) {
         .style("background", "#fff");
 
   d3.select(".chart")
-      .on("mousemove", function(){  
+      .on("mousemove", function(){
          mousex = d3.mouse(this);
          mousex = mousex[0] + 5;
          vertical.style("left", mousex + "px" )})
-      .on("mouseover", function(){  
+      .on("mouseover", function(){
          mousex = d3.mouse(this);
          mousex = mousex[0] + 5;
          vertical.style("left", mousex + "px")});
 });
 }
-</script>
