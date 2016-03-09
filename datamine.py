@@ -43,8 +43,12 @@ def datamineRepo(repo):
     # print
     for time in flat_csv:
         for ext in flat_csv[time]:
+            if ext == "":
+                ext_out = "unknown"
+            else:
+                ext_out = ext
             dtime = datetime.datetime.fromtimestamp(time).strftime('%m/%d/%Y')
-            print(ext,",",flat_csv[time][ext],",",dtime)
+            print(ext_out,",",flat_csv[time][ext],",",dtime)
 
 
 if __name__=='__main__':
