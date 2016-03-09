@@ -5,8 +5,13 @@
 #   http://bl.ocks.org/WillTurman/4631136
 # <key>,<value>,<date>
 
+import pygit2
+
 def datamineRepo(repo):
-    pass
+    repo = pygit2.clone_repository(repo, "/tmp/datamine")
+    flags = pygit2.GIT_SORT_TOPOLOGICAL | pygit2.GIT_SORT_REVERSE
+    for commit in repo.walk(repo.head.target, flags):
+        print(commit.message) # or some other operation
 
 if __name__=='__main__':
     import argparse
