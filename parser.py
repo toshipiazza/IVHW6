@@ -3,6 +3,12 @@ import sys
 import string
 import csv
 import math
+import time
+
+def compare(a, b):
+    a_date = time.strptime(a[1], '%m/%d/%y')
+    b_date = time.strptime(b[1], '%m/%d/%y')
+    return cmp(a_date, b_date)
 
 def num(s):
     try:
@@ -21,10 +27,11 @@ if __name__ == '__main__':
     #argv[0] is the file
     #argv[1] is the csv
     number_max = 0
+    sorted_csv = { }
     if (len(sys.argv) == 2):
         commitsfile = sys.argv[1]
         #open commits to read
-        with open('railsdata.csv', 'w') as csvfile:
+        with open('rubydata.csv', 'w') as csvfile:
             spamwriter = csv.writer(csvfile)
             spamwriter.writerow(["key","value","date"])
             with open(commitsfile) as f:
@@ -45,7 +52,10 @@ if __name__ == '__main__':
                                 if (new_month <= 0):
                                     year = int(current_year - math.floor((new_month*-1) / 12) - 1)
                                     month = 12 - ((new_month*-1) % 12)
-                                    date = str(month) + "/" + current_day + "/" + str(year)
+                                    if year < 10:
+                                        date = str(month) + "/" + current_day + "/" + "0" + str(year)
+                                    else:
+                                        date = str(month) + "/" + current_day + "/" + str(year)
                                 else:
                                     date = str(new_month) + "/" + current_day + "/" + str(current_year)
                         else:
@@ -81,8 +91,17 @@ if __name__ == '__main__':
                                 filename = temp[6]
                                 continue
                             continue
+
                     for key in extensions:
-                        #put in csv here
                         formatted_number = str("{0:.3f}".format(extensions[key]/rails_max))
-                        spamwriter.writerow([key,formatted_number,date])
+                        try:
+                            sorted_csv[key].append((formatted_number, date))
+                        except:
+                            sorted_csv[key] = [(formatted_number, date)]
+                for obj in sorted_csv:
+                    sorted_row = sorted(sorted_csv[obj], cmp=compare)
+                    for i in sorted_row:
+                        if not i[1][-2:] == '15':
+                            continue
+                        spamwriter.writerow([obj,i[0],i[1]])
         print("max number is " + str(number_max))
