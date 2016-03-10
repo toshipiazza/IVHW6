@@ -1,5 +1,5 @@
 // streamgraph
-chart("data-streamgraph.csv", "orange");
+chart("data-django.csv", "orange");
 
 var datearray = [];
 var colorrange = [];
