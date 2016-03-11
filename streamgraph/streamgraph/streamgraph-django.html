@@ -9,7 +9,7 @@ body {
   font: 10px sans-serif;
 }
 
-.chart { 
+.chart {
   background: #fff;
 }
 
@@ -35,6 +35,21 @@ button {
 <body>
 <script src="http://d3js.org/d3.v2.js"></script>
 
-<div class="chart"></div>
+<figure>
+  <div class="chart"></div>
+  <div style="width:700px">
+    <figcaption>Figure 2: A streamgraph of the same vein as Figure 1, but which
+                instead depicts the everlasting Django project (Toshi's personal
+                favorite of the two). Clearly, we can see that the number of
+                lines changed across all filetypes decrease monotonically as
+                the end of 2015 grows near. This is in stark contrast to the rails
+                project which spikes near its release. This is odd, because Django
+                did have multiple releases in 2015, however it seems to be a faster
+                moving project than rails, perhaps due to language development. This
+                may contribute to the fact that the number of lines committed is almost
+                a perfect monotomic curve, rather than spiky during release cycles.
+                </figcaption>
+  </div>
+</figure>
 
 <script src="./streamgraph-django.js"></script>

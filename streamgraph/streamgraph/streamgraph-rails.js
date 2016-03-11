@@ -1,21 +1,13 @@
 // streamgraph
-chart("data-rails.csv", "orange");
+chart("data-rails.csv");
 
 var datearray = [];
 var colorrange = [];
 
 
-function chart(csvpath, color) {
+function chart(csvpath) {
 
-if (color == "blue") {
-  colorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
-}
-else if (color == "pink") {
-  colorrange = ["#980043", "#DD1C77", "#DF65B0", "#C994C7", "#D4B9DA", "#F1EEF6"];
-}
-else if (color == "orange") {
-  colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
-}
+colorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
 strokecolor = colorrange[0];
 
 var format = d3.time.format("%m/%d/%y");
