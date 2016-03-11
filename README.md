@@ -1,3 +1,4 @@
+# Writeup
 
 Jacob Martin and Toshi Piazza worked on this together having never worked together before.
 
@@ -20,5 +21,5 @@ Finally we got it working and outputted our stream graphs. Just as you would exp
 
 Both repositories saw their lines changed per month decrease over time but django’s was much more obvious. We had 2 interesting findings. The .po extension for django dropped off considerably after the initial development period and Rails had a very weird balloon expansion during a 4 month period before going back to it’s normal downward trend. We hypothesized this might be a release of a new rails version, or the aftermath of that release. Afterwards we found that Rails 4.2.4 was released August 24, 2015. The amount of .md files was also surprising
 
-In looking at the stream graphs versus the stacked bar chart, both conveyed the same information, but the streamgraph helped convey the proportionality of individual file types much better (and it was interactive), but the bar chart had a better legend (in terms of files listed along the right side).  Specifically, the trends we see mirror each other exactly, though the spikes seem more drastic in the bar graph even though it is harder to see the demarcation between individual filetypes. Meanwhile, it was extremely easy to set up the excel stacked bar graph, whereas d3.js expected too much of the data and its contents that it was almost unusable.
+In looking at the stream graphs versus the stacked bar chart, both conveyed the same information, but the streamgraph helped convey the proportionality of individual file types much better (and it was interactive), but the bar chart had a better legend (in terms of files listed along the right side).  Specifically, the trends we see mirror each other exactly, though the spikes seem more drastic in the bar graph even though it is harder to see the demarcation between individual filetypes. Of course, this means that although the trends show more clearly in the bar graph, and better numerical statistics can be taken from it, at first glance it might be more misleading to the user (the sequential colorscheme doesn't help either... Excel would be much happier with a diverging colorscheme). Meanwhile, it was extremely easy to set up the excel stacked bar graph, whereas d3.js expected too much of the data and its contents that it was almost unusable.
 
