@@ -31,7 +31,7 @@ if __name__ == '__main__':
     if (len(sys.argv) == 2):
         commitsfile = sys.argv[1]
         #open commits to read
-        with open('rubydata.csv', 'w') as csvfile:
+        with open('./streamgraph/streamgraph/data-rails.csv', 'w') as csvfile:
             spamwriter = csv.writer(csvfile)
             spamwriter.writerow(["key","value","date"])
             with open(commitsfile) as f:
